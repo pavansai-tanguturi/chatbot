@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "calibri";
+    font-weight: bold;
+  }
+  body {
+    background: rgb(0, 0, 0);
+  }
+
+  .bay{
+    padding: 0px;
+    margin:0px;
+    position: absolute;
+    bottom: 25px;
+    right: 30px;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+	  animation: float 3s ease-in-out infinite;
+  }
+  .bay img{
+    max-width: 60px;
+    border-radius: 50%;
+    border-style: initial;
+  }
+
+  @keyframes float {
+    0% {
+      box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+      transform: translatey(0px);
+    }
+    50% {
+      box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+      transform: translatey(-20px);
+    }
+    100% {
+      box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+      transform: translatey(0px);
+    }
+  }
+  
+  
+  .container {
+    display: none;
+    flex-direction: column;  
+    justify-content: space-between;
+    --light-color: #fff;
+    height: 520px;
+    width: 400px;
+    background: var(--light-color);
+    position: fixed;
+    bottom: 70px;
+    right: 100px;
+    box-shadow: 0px 0px 15px 0px black;
+    border-radius: 25px 25px 25px 25px;
+    transition: opacity 0.3sec;
+  }
+
+  .container:hover{
+    opacity: 1;
+  }
+
+  .show{
+    display: flex;
+  }
+
+  .chat-header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0px 30px;
+    background: linear-gradient(-45deg, #ee7752,#e73c7e,#23a6d5,#23d5ab);
+    animation: gradient 5s ease infinite;
+    background-size: 400% 400%;
+    color: var(--light-color);
+    font-size: 2.0rem;
+    border-radius: 15px 15px 0px 0px;
+  }
+
+  @keyframes gradient
+  {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .chat-header .title {
+    padding-left: 10px;
+  }
+  .chat-body {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 8px 10px;
+    align-items: flex-end;
+    overflow-y: auto;
+    font-size: 20px;
+    position: relative;
+  }
+  .chat-input {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ccc;
+  }
+  .input-sec {
+    flex: 9;
+  }
+  .send {
+    flex: 1;
+    padding-right: 4px;
+    border-left: groove;
+  }
+
+  #txtInput {
+    padding: 0px 20px;
+    border: none;
+    outline: none;
+    caret-color: black;
+    font-size: 1.5rem;
+    width: 100%;
+    border-radius: 0px 0px 15px 15px;
+  }
+
+  .bot-responce{
+    display: flex;
+    height: 45px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 85%;
+    word-wrap: break-word;
+  }
+  
+  .chatbot-message,
+  .user-message {
+    padding: 12px;
+    background: linear-gradient(-45deg,#e73c7e,#23a6d5,#23d5ab);
+    animation: gradient 10s ease-in infinite;
+    background-size: 400% 400%;
+    margin: 5px;
+    width: max-content;
+    border-radius: 25px 25px 5px 25px;
+    border: none;
+    align-items: stretch;
+  }
+  .chatbot-message {
+    background:#4b5c66;
+    color: var(--light-color);
+    align-self: flex-start;
+    border-radius: 5px 25px 25px 25px;
+    max-width: calc(90% - 1rem);
+  }
+  .chat-msg{ 
+    background: #4b5c66;
+    align-self: flex-start;
+    color: var(--light-color);
+    border-radius: 5px 25px 25px 25px;
+    max-width: calc(90% - 1rem);
+    width: max-content;
+    margin: 5px;
+    padding: 8px;
+  }
+
+  .bi-wechat{
+    margin: 10px;
+    padding: 20px;
+    height: 10px;
+    color: #fff;
+  }
+
+  .wrapper{
+    display: flex;
+    position: absolute;
+    left: 2%;
+    bottom: 5%;
+    z-index: 999;
+  }
+
+  .chat-body .wrapper > .circle{
+    width: 15px ;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #4b5c66;
+    margin: 5px;
+  }
+  .circle-1{
+    animation: circle 1s ease-in-out 0ms both infinite;
+  }
+  
+  .circle-2{
+    animation: circle 1s ease-in-out 200ms both infinite;
+  }
+
+  .circle-3{
+    animation: circle 1s ease-in-out 400ms both infinite;
+  }
+
+
+  @keyframes circle{
+    0%{
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+  }
+  .hide{
+    display: none !important;
+  }
+
+  .bot-response-container{
+    display: flex;
+    height: 45px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 10px;
+    word-wrap: break-word;
+    max-width: 60px;
+    border-image-width: initial;
+    border-style: initial;
+  }
+
+  #co{
+    display: flex;
+    position: absolute;
+    padding: 10px;
+    margin: 5px;
+    bottom: 5.8rem;
+    display: flex;
+    right: 1.25rem;
+    color: #fff;
+    background-color: rgb(188, 120, 209);
+    border-radius: 25px;
+    box-shadow: 0px 0px 15px 0px black;
+    animation: float 3s ease-in-out infinite;
+  }
