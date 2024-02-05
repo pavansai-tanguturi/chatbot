@@ -3,7 +3,7 @@ const chat_Btn = document.querySelector(".bay");
 const chatBody = document.querySelector(".chat-body");
 const txtInput = document.querySelector("#txtInput");
 const send = document.querySelector(".send");
-const loadingele = document.querySelector(".wrapper");
+const load = document.querySelector(".wrapper");
 const msg = document.querySelector("#co")
 var txt;
 
@@ -46,11 +46,19 @@ const renderMessageEle = (txt, type) => {
 };
 
 const getChatbotResponse = (userInput) => {
-  return history(userInput);
-  /*return responseObj[userInput] == undefined
-  ? "Please try something else"
-  : responseObj[userInput];*/
-}
+  let sentence = userInput.toLowerCase();
+  let wordsArray = sentence.split(" ");
+
+  for (let i = 0; i < wordsArray.length; i++) {
+    if (responseObj[wordsArray[i]] !== undefined) {
+      return responseObj[wordsArray[i]];
+    }
+  }
+
+  return "Please try something else";
+};
+
+
 
 const setScrollPosition = () => {
   if (chatBody.scrollHeight > 0) {
@@ -70,11 +78,5 @@ chat_Btn.addEventListener("click", () =>{
   }
 });
 
-const toggleLoading=(show)=>loadingele.classList.toggle("hide",show);
+const toggleLoading=(show)=>load.classList.toggle("hide",show);
 
-function history(userInput){
-  let y=userInput.toLowerCase();
-    return responseObj[y] == undefined
-    ? "Please try something else"
-    : responseObj[y];
-}
